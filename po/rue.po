@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard-plug-power\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-11 22:29+0000\n"
+"POT-Creation-Date: 2025-10-09 20:23+0000\n"
 "PO-Revision-Date: 2012-10-20 20:30+0000\n"
 "Last-Translator: u.f.djeison@gmail.com <u.f.djeison@gmail.com>\n"
 "Language-Team: Rusyn <rue@li.org>\n"
@@ -179,35 +179,39 @@ msgstr ""
 msgid "Connected Devices"
 msgstr ""
 
-#: src/Widgets/TimeoutComboBox.vala:97
+#: src/Widgets/TimeoutComboBox.vala:75
 msgid "Never"
 msgstr "Ниґде"
 
-#: src/Widgets/TimeoutComboBox.vala:98
+#: src/Widgets/TimeoutComboBox.vala:75
+msgid "(Results in higher energy usage)"
+msgstr ""
+
+#: src/Widgets/TimeoutComboBox.vala:76
 msgid "5 min"
 msgstr "5 минут"
 
-#: src/Widgets/TimeoutComboBox.vala:99
+#: src/Widgets/TimeoutComboBox.vala:77
 msgid "10 min"
 msgstr "10 минут"
 
-#: src/Widgets/TimeoutComboBox.vala:100
+#: src/Widgets/TimeoutComboBox.vala:78
 msgid "15 min"
 msgstr ""
 
-#: src/Widgets/TimeoutComboBox.vala:101
+#: src/Widgets/TimeoutComboBox.vala:79
 msgid "30 min"
 msgstr "30 минут"
 
-#: src/Widgets/TimeoutComboBox.vala:102
+#: src/Widgets/TimeoutComboBox.vala:80
 msgid "45 min"
 msgstr ""
 
-#: src/Widgets/TimeoutComboBox.vala:103
+#: src/Widgets/TimeoutComboBox.vala:81
 msgid "1 hour"
 msgstr "1 година"
 
-#: src/Widgets/TimeoutComboBox.vala:104
+#: src/Widgets/TimeoutComboBox.vala:82
 msgid "2 hours"
 msgstr ""
 

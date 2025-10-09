@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maya\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-11 22:29+0000\n"
+"POT-Creation-Date: 2025-10-09 20:23+0000\n"
 "PO-Revision-Date: 2024-05-13 19:36+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/switchboard/"
@@ -186,35 +186,39 @@ msgstr ""
 msgid "Connected Devices"
 msgstr "Під'єднані пристрої"
 
-#: src/Widgets/TimeoutComboBox.vala:97
+#: src/Widgets/TimeoutComboBox.vala:75
 msgid "Never"
 msgstr "Ніколи"
 
-#: src/Widgets/TimeoutComboBox.vala:98
+#: src/Widgets/TimeoutComboBox.vala:75
+msgid "(Results in higher energy usage)"
+msgstr ""
+
+#: src/Widgets/TimeoutComboBox.vala:76
 msgid "5 min"
 msgstr "5 хв"
 
-#: src/Widgets/TimeoutComboBox.vala:99
+#: src/Widgets/TimeoutComboBox.vala:77
 msgid "10 min"
 msgstr "10 хв"
 
-#: src/Widgets/TimeoutComboBox.vala:100
+#: src/Widgets/TimeoutComboBox.vala:78
 msgid "15 min"
 msgstr "15 хв"
 
-#: src/Widgets/TimeoutComboBox.vala:101
+#: src/Widgets/TimeoutComboBox.vala:79
 msgid "30 min"
 msgstr "30 хв"
 
-#: src/Widgets/TimeoutComboBox.vala:102
+#: src/Widgets/TimeoutComboBox.vala:80
 msgid "45 min"
 msgstr "45 хв"
 
-#: src/Widgets/TimeoutComboBox.vala:103
+#: src/Widgets/TimeoutComboBox.vala:81
 msgid "1 hour"
 msgstr "1 год"
 
-#: src/Widgets/TimeoutComboBox.vala:104
+#: src/Widgets/TimeoutComboBox.vala:82
 msgid "2 hours"
 msgstr "2 години"
 
