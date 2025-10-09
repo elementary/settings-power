@@ -62,17 +62,6 @@ class Power.TimeoutComboBox : Granite.Bin {
         120 * SECS_IN_MINUTE
     };
 
-    private string[] timeout_labels = {
-        _("Never"),
-        _("5 min"),
-        _("10 min"),
-        _("15 min"),
-        _("30 min"),
-        _("45 min"),
-        _("1 hour"),
-        _("2 hours")
-    };
-
     public TimeoutComboBox (GLib.Settings schema, string key) {
         Object (key: key, schema: schema);
 
@@ -82,7 +71,22 @@ class Power.TimeoutComboBox : Granite.Bin {
     construct {
         key_type = schema.get_value (key).get_type ();
 
-        dropdown = new Gtk.DropDown.from_strings (timeout_labels);
+        var liststore = new GLib.ListStore (typeof (Timeout));
+        liststore.append (new Timeout (_("Never"), 0, _("(Results in higher energy usage)")));
+        liststore.append (new Timeout (_("5 min"), 5 * SECS_IN_MINUTE));
+        liststore.append (new Timeout (_("10 min"), 10 * SECS_IN_MINUTE));
+        liststore.append (new Timeout (_("15 min"), 15 * SECS_IN_MINUTE));
+        liststore.append (new Timeout (_("30 min"), 30 * SECS_IN_MINUTE));
+        liststore.append (new Timeout (_("45 min"), 45 * SECS_IN_MINUTE));
+        liststore.append (new Timeout (_("1 hour"), 60 * SECS_IN_MINUTE));
+        liststore.append (new Timeout (_("2 hours"), 120 * SECS_IN_MINUTE));
+
+        var factory = new Gtk.SignalListItemFactory ();
+        factory.bind.connect (bind_factory);
+
+        dropdown = new Gtk.DropDown (liststore, null) {
+            factory = factory
+        };
 
         child = dropdown;
 
@@ -120,9 +124,9 @@ class Power.TimeoutComboBox : Granite.Bin {
         schema.changed[key].disconnect (update_combo);
 
         if (key_type.equal (VariantType.UINT32)) {
-            schema.set_uint (key, (uint) TIMEOUT[dropdown.selected]);
+            schema.set_uint (key, (uint) ((Timeout) dropdown.selected_item).seconds);
         } else if (key_type.equal (VariantType.INT32)) {
-            schema.set_int (key, TIMEOUT[dropdown.selected]);
+            schema.set_int (key, ((Timeout) dropdown.selected_item).seconds);
         } else {
             critical ("Unsupported key type in schema");
         }
@@ -131,10 +135,10 @@ class Power.TimeoutComboBox : Granite.Bin {
 
         if (greeter_act != null) {
             if (key == "sleep-inactive-ac-timeout") {
-                greeter_act.sleep_inactive_ac_timeout = TIMEOUT[dropdown.selected];
+                greeter_act.sleep_inactive_ac_timeout = ((Timeout) dropdown.selected_item).seconds;
                 greeter_act.sleep_inactive_ac_type = schema.get_enum (enum_property);
             } else if (key == "sleep-inactive-battery-timeout") {
-                greeter_act.sleep_inactive_battery_timeout = TIMEOUT[dropdown.selected];
+                greeter_act.sleep_inactive_battery_timeout = ((Timeout) dropdown.selected_item).seconds;
                 greeter_act.sleep_inactive_battery_type = schema.get_enum (enum_property);
             }
         }
@@ -177,5 +181,49 @@ class Power.TimeoutComboBox : Granite.Bin {
         dropdown.notify["selected"].disconnect (update_settings);
         dropdown.selected = find_closest (val);
         dropdown.notify["selected"].connect (update_settings);
+    }
+
+    private void bind_factory (Object object) {
+        var list_item = (Gtk.ListItem) object;
+        var timeout = (Timeout) list_item.item;
+        list_item.child = timeout.get_widget ();
+    }
+
+    private class Timeout : Object {
+        public string label { get; construct; }
+        public string description { get; construct; }
+        public int seconds { get; construct; }
+
+        public Timeout (string label, int seconds, string description = "") {
+            Object (
+                label: label,
+                seconds: seconds,
+                description: description
+            );
+        }
+
+        public Gtk.Widget get_widget () {
+            var title = new Gtk.Label (label) {
+                valign = BASELINE,
+                xalign = 0
+            };
+
+            var box = new Granite.Box (HORIZONTAL, HALF);
+            box.append (title);
+
+            if (description != "") {
+                var description = new Gtk.Label (description) {
+                    valign = BASELINE,
+                    xalign = 0,
+                    wrap = true
+                };
+                description.add_css_class (Granite.CssClass.SMALL);
+                description.add_css_class (Granite.CssClass.WARNING);
+
+                box.append (description);
+            }
+
+            return box;
+        }
     }
 }
