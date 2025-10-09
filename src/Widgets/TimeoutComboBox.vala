@@ -1,27 +1,9 @@
 /*
-<<<<<<< HEAD
- * Copyright 2011-2016 elementary, Inc. (https://elementary.io)
-=======
- * Copyright (c) 2011-2016 elementary, Inc. (https://elementary.io)
->>>>>>> c5e6b8b (Port to Gtk4 (#217))
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA  02110-1301, USA.
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ * SPDX-FileCopyrightText: 2011-2025 elementary, Inc. (https://elementary.io)
  */
 
-class Power.TimeoutComboBox : Gtk.Widget {
+class Power.TimeoutComboBox : Granite.Bin {
     private Greeter.AccountsService? greeter_act = null;
 
     private string? _enum_property = null;
@@ -66,7 +48,7 @@ class Power.TimeoutComboBox : Gtk.Widget {
     public GLib.Settings schema { get; construct; }
     public string key { get; construct; }
     private VariantType key_type;
-    private Gtk.ComboBoxText combobox;
+    private Gtk.DropDown dropdown;
 
     private const int SECS_IN_MINUTE = 60;
     private const int[] TIMEOUT = {
@@ -80,34 +62,33 @@ class Power.TimeoutComboBox : Gtk.Widget {
         120 * SECS_IN_MINUTE
     };
 
+    private string[] timeout_labels = {
+        _("Never"),
+        _("5 min"),
+        _("10 min"),
+        _("15 min"),
+        _("30 min"),
+        _("45 min"),
+        _("1 hour"),
+        _("2 hours")
+    };
+
     public TimeoutComboBox (GLib.Settings schema, string key) {
         Object (key: key, schema: schema);
 
         update_combo ();
     }
 
-    static construct {
-        set_layout_manager_type (typeof (Gtk.BinLayout));
-    }
-
     construct {
         key_type = schema.get_value (key).get_type ();
 
-        combobox = new Gtk.ComboBoxText ();
-        combobox.append_text (_("Never"));
-        combobox.append_text (_("5 min"));
-        combobox.append_text (_("10 min"));
-        combobox.append_text (_("15 min"));
-        combobox.append_text (_("30 min"));
-        combobox.append_text (_("45 min"));
-        combobox.append_text (_("1 hour"));
-        combobox.append_text (_("2 hours"));
+        dropdown = new Gtk.DropDown.from_strings (timeout_labels);
 
-        combobox.set_parent (this);
+        child = dropdown;
 
         setup_accountsservice.begin ();
 
-        combobox.changed.connect (update_settings);
+        dropdown.notify["selected"].connect (update_settings);
         schema.changed[key].connect (update_combo);
     }
 
@@ -129,7 +110,7 @@ class Power.TimeoutComboBox : Gtk.Widget {
 
     private void update_settings () {
         if (enum_property != null && enum_never_value != -1 && enum_normal_value != -1) {
-            if (combobox.active == 0) {
+            if (dropdown.selected == 0) {
                 schema.set_enum (enum_property, enum_never_value);
             } else {
                 schema.set_enum (enum_property, enum_normal_value);
@@ -139,9 +120,9 @@ class Power.TimeoutComboBox : Gtk.Widget {
         schema.changed[key].disconnect (update_combo);
 
         if (key_type.equal (VariantType.UINT32)) {
-            schema.set_uint (key, (uint) TIMEOUT[combobox.active]);
+            schema.set_uint (key, (uint) TIMEOUT[dropdown.selected]);
         } else if (key_type.equal (VariantType.INT32)) {
-            schema.set_int (key, TIMEOUT[combobox.active]);
+            schema.set_int (key, TIMEOUT[dropdown.selected]);
         } else {
             critical ("Unsupported key type in schema");
         }
@@ -150,10 +131,10 @@ class Power.TimeoutComboBox : Gtk.Widget {
 
         if (greeter_act != null) {
             if (key == "sleep-inactive-ac-timeout") {
-                greeter_act.sleep_inactive_ac_timeout = TIMEOUT[combobox.active];
+                greeter_act.sleep_inactive_ac_timeout = TIMEOUT[dropdown.selected];
                 greeter_act.sleep_inactive_ac_type = schema.get_enum (enum_property);
             } else if (key == "sleep-inactive-battery-timeout") {
-                greeter_act.sleep_inactive_battery_timeout = TIMEOUT[combobox.active];
+                greeter_act.sleep_inactive_battery_timeout = TIMEOUT[dropdown.selected];
                 greeter_act.sleep_inactive_battery_type = schema.get_enum (enum_property);
             }
         }
@@ -187,20 +168,14 @@ class Power.TimeoutComboBox : Gtk.Widget {
         if (enum_property != null && enum_never_value != -1 && enum_normal_value != -1) {
             var enum_value = schema.get_enum (enum_property);
             if (enum_value == enum_never_value) {
-                combobox.active = 0;
+                dropdown.selected = 0;
                 return;
             }
         }
 
         // need to process value to comply our timeout level
-        combobox.changed.disconnect (update_settings);
-        combobox.active = find_closest (val);
-        combobox.changed.connect (update_settings);
-    }
-
-    ~TimeoutComboBox () {
-        while (this.get_last_child () != null) {
-            this.get_last_child ().unparent ();
-        }
+        dropdown.notify["selected"].disconnect (update_settings);
+        dropdown.selected = find_closest (val);
+        dropdown.notify["selected"].connect (update_settings);
     }
 }
