@@ -189,7 +189,7 @@ class Power.TimeoutComboBox : Granite.Bin {
         list_item.child = timeout.get_widget ();
     }
 
-    private class Timeout : Granite.Bin {
+    private class Timeout : Object {
         public string label { get; construct; }
         public string description { get; construct; }
         public int seconds { get; construct; }
