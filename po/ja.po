@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-09 20:23+0000\n"
-"PO-Revision-Date: 2025-08-30 22:55+0000\n"
+"PO-Revision-Date: 2025-10-11 07:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/settings/"
 "power/ja/>\n"
@@ -179,11 +179,11 @@ msgstr "接続済みデバイス"
 
 #: src/Widgets/TimeoutComboBox.vala:75
 msgid "Never"
-msgstr "なし"
+msgstr "しない"
 
 #: src/Widgets/TimeoutComboBox.vala:75
 msgid "(Results in higher energy usage)"
-msgstr ""
+msgstr "(電気使用量が増えます)"
 
 #: src/Widgets/TimeoutComboBox.vala:76
 msgid "5 min"
