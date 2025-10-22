@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maya\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-09 20:23+0000\n"
-"PO-Revision-Date: 2025-10-22 09:59+0000\n"
+"PO-Revision-Date: 2025-10-23 13:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/settings/"
 "power/sv/>\n"
@@ -108,11 +108,11 @@ msgstr "Beteende vid stängning av lock"
 
 #: src/MainView.vala:164 src/Plug.vala:93
 msgid "Lid Close With External Display"
-msgstr "Lockstängning med extern display"
+msgstr "Lock stängt med extern skärm"
 
 #: src/MainView.vala:195 src/Plug.vala:88
 msgid "Automatic Display Off"
-msgstr "Automatisk avstängning av displayen"
+msgstr "Automatisk avstängning av skärmen"
 
 #. FIXME: Virtual machines can only shutdown or do nothing. Tablets always suspend.
 #: src/MainView.vala:205 src/Widgets/LidCloseActionComboBox.vala:52
