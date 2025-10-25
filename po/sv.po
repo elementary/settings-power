@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maya\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-09 20:23+0000\n"
-"PO-Revision-Date: 2025-10-23 13:55+0000\n"
+"PO-Revision-Date: 2025-10-26 09:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/settings/"
 "power/sv/>\n"
@@ -42,7 +42,7 @@ msgstr "Tomt"
 
 #: src/Device.vala:60
 msgid "Fully charged"
-msgstr "Fullt laddad"
+msgstr "Fullt laddat"
 
 #: src/Device.vala:62
 msgid "Waiting to charge"
