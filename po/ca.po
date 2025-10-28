@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maya\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-09 20:23+0000\n"
-"PO-Revision-Date: 2025-05-17 09:55+0000\n"
+"PO-Revision-Date: 2025-10-11 07:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/settings/"
 "power/ca/>\n"
@@ -191,7 +191,7 @@ msgstr "Mai"
 
 #: src/Widgets/TimeoutComboBox.vala:75
 msgid "(Results in higher energy usage)"
-msgstr ""
+msgstr "(Resulta en més consum d'energia)"
 
 #: src/Widgets/TimeoutComboBox.vala:76
 msgid "5 min"

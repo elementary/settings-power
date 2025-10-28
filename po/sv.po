@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: maya\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-09 20:23+0000\n"
-"PO-Revision-Date: 2024-08-07 18:16+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Swedish <https://l10n.elementary.io/projects/switchboard/"
+"PO-Revision-Date: 2025-10-26 09:55+0000\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <https://l10n.elementaryos.org/projects/settings/"
 "power/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2016-11-21 05:42+0000\n"
 
 #: data/power.policy.in:10
@@ -30,27 +30,27 @@ msgstr "Autentisering krävs för att hantera ströminställningar"
 
 #: src/Device.vala:54
 msgid "Charging"
-msgstr ""
+msgstr "Bekräftar betalning"
 
 #: src/Device.vala:56
 msgid "Using battery power"
-msgstr ""
+msgstr "Använda batteriström"
 
 #: src/Device.vala:58
 msgid "Empty"
-msgstr ""
+msgstr "Tomt"
 
 #: src/Device.vala:60
 msgid "Fully charged"
-msgstr ""
+msgstr "Fullt laddat"
 
 #: src/Device.vala:62
 msgid "Waiting to charge"
-msgstr ""
+msgstr "Väntar på att laddas"
 
 #: src/Device.vala:64
 msgid "Waiting to use battery power"
-msgstr ""
+msgstr "Väntar på att använda batterikraft"
 
 #: src/Device.vala:66
 msgid "Unknown"
@@ -60,17 +60,17 @@ msgstr "Okänd"
 #: src/Device.vala:193
 msgctxt "battery-level"
 msgid "Critical"
-msgstr ""
+msgstr "Kritiskt"
 
 #: src/Device.vala:195
 msgctxt "battery-level"
 msgid "Low"
-msgstr ""
+msgstr "Låg"
 
 #: src/Device.vala:197
 msgctxt "battery-level"
 msgid "Good"
-msgstr ""
+msgstr "Bra"
 
 #: src/Device.vala:199
 msgctxt "battery-level"
@@ -80,27 +80,23 @@ msgstr "Hög"
 #: src/Device.vala:201
 msgctxt "battery-level"
 msgid "Full"
-msgstr ""
+msgstr "Full"
 
 #: src/Device.vala:205
 msgid "Unknown. Device may be locked."
-msgstr ""
+msgstr "Okänd. Enheten kan vara låst."
 
 #: src/MainView.vala:49 src/Plug.vala:36
 msgid "Power"
-msgstr "Ström"
+msgstr "Energi"
 
 #: src/MainView.vala:94 src/Plug.vala:86
-#, fuzzy
-#| msgid "Automatically adjust brightness:"
 msgid "Automatically Adjust Brightness"
-msgstr "Justera skärmens ljusstyrka automatiskt:"
+msgstr "Justera ljusstyrkan automatiskt"
 
 #: src/MainView.vala:126 src/Plug.vala:91
-#, fuzzy
-#| msgid "Display brightness"
 msgid "Display Brightness"
-msgstr "Skärmljusstyrka"
+msgstr "Skärmens ljusstyrka"
 
 #: src/MainView.vala:147
 msgid "Some changes will not take effect until you restart this computer"
@@ -108,17 +104,15 @@ msgstr "Vissa ändringar verkställs inte förren du startar om datorn"
 
 #: src/MainView.vala:156 src/Plug.vala:92
 msgid "Lid Close Behavior"
-msgstr ""
+msgstr "Beteende vid stängning av lock"
 
 #: src/MainView.vala:164 src/Plug.vala:93
 msgid "Lid Close With External Display"
-msgstr ""
+msgstr "Lock stängt med extern skärm"
 
 #: src/MainView.vala:195 src/Plug.vala:88
-#, fuzzy
-#| msgid "Inactive display off"
 msgid "Automatic Display Off"
-msgstr "Inaktiv skärm av"
+msgstr "Automatisk avstängning av skärmen"
 
 #. FIXME: Virtual machines can only shutdown or do nothing. Tablets always suspend.
 #: src/MainView.vala:205 src/Widgets/LidCloseActionComboBox.vala:52
@@ -130,36 +124,28 @@ msgid "Suspend"
 msgstr "Vänteläge"
 
 #: src/MainView.vala:207
-#, fuzzy
-#| msgid "Shutdown"
 msgid "Ask to shutdown"
-msgstr "Stäng av"
+msgstr "Fråga att få stänga av"
 
 #: src/MainView.vala:212 src/Plug.vala:94
-#, fuzzy
-#| msgid "Power button"
 msgid "Power Button Behavior"
-msgstr "Avstängningsknapp"
+msgstr "Beteende för strömknapp"
 
 #: src/MainView.vala:226 src/MainView.vala:266 src/Plug.vala:95
-#, fuzzy
-#| msgid "Suspend when inactive for:"
 msgid "Suspend When Inactive For"
-msgstr "Vänteläge vid inaktivitet i:"
+msgstr "Vänteläge när inaktiv för"
 
 #: src/MainView.vala:251
 msgid "Plugged In"
 msgstr "Inkopplad"
 
 #: src/MainView.vala:297 src/Plug.vala:87
-#, fuzzy
-#| msgid "Automatically adjust brightness:"
 msgid "Automatically Save Power"
-msgstr "Justera skärmens ljusstyrka automatiskt:"
+msgstr "Spara automatiskt ström"
 
 #: src/MainView.vala:300
 msgid "Power Saver mode will be used when battery is low"
-msgstr ""
+msgstr "Energisparläget används när batterinivån är låg"
 
 #: src/MainView.vala:309
 msgid "On Battery"
@@ -167,37 +153,35 @@ msgstr "På batteri"
 
 #: src/Plug.vala:37
 msgid "Configure display brightness, power buttons, and suspend behavior"
-msgstr "Ställ in skärmens ljusstyrka, strömbrytare och strömsparlägen"
+msgstr "Ställ in skärmens ljusstyrka, strömknappar och strömsparlägen"
 
 #: src/Plug.vala:89 src/Widgets/BatteryBox.vala:21
-#, fuzzy
-#| msgid "On Battery"
 msgid "Battery Level"
-msgstr "På batteri"
+msgstr "Batterinivå"
 
 #: src/Plug.vala:90
-#, fuzzy
-#| msgid "Dim display"
 msgid "Dim Display"
-msgstr "Dämpa skärmens ljusstyrka"
+msgstr "Dimma skärmen"
 
 #: src/Widgets/BatteryBox.vala:22
 msgid "Battery Levels"
-msgstr ""
+msgstr "Batterinivåer"
 
 #: src/Widgets/BatteryBox.vala:30
 msgid "Show Percentage In Panel"
-msgstr ""
+msgstr "Visa procentandel i panelen"
 
 #: src/Widgets/DevicesBox.vala:8
 msgid ""
 "Devices that report battery information when plugged in or connected "
 "wirelessly will appear here"
 msgstr ""
+"Enheter som rapporterar batteriinformation när de är inkopplade eller "
+"trådlöst anslutna visas här"
 
 #: src/Widgets/DevicesBox.vala:28
 msgid "Connected Devices"
-msgstr ""
+msgstr "Anslutna enheter"
 
 #: src/Widgets/TimeoutComboBox.vala:75
 msgid "Never"
@@ -205,7 +189,7 @@ msgstr "Aldrig"
 
 #: src/Widgets/TimeoutComboBox.vala:75
 msgid "(Results in higher energy usage)"
-msgstr ""
+msgstr "(resulterar i högre energiförbrukning)"
 
 #: src/Widgets/TimeoutComboBox.vala:76
 msgid "5 min"
@@ -245,31 +229,27 @@ msgstr "Lås"
 
 #: src/Widgets/LidCloseActionComboBox.vala:51
 msgid "Halt"
-msgstr "Stopp"
+msgstr "Stoppa"
 
 #: src/Widgets/LidCloseActionComboBox.vala:55
 msgid "Not supported"
-msgstr "Stöds ej"
+msgstr "Stöds inte"
 
 #: src/Widgets/PowerModeButton.vala:60
-#, fuzzy
-#| msgid "Power"
 msgid "Power Mode"
-msgstr "Ström"
+msgstr "Energiläge"
 
 #: src/Widgets/PowerModeButton.vala:68
-#, fuzzy
-#| msgid "Power"
 msgid "Power Saver"
-msgstr "Ström"
+msgstr "Energisparläge"
 
 #: src/Widgets/PowerModeButton.vala:82
 msgid "Balanced"
-msgstr ""
+msgstr "Balanserad"
 
 #: src/Widgets/PowerModeButton.vala:98
 msgid "Performance"
-msgstr ""
+msgstr "Prestanda"
 
 #~ msgid "Display brightness:"
 #~ msgstr "Skärmens ljusstyrka:"
