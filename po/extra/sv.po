@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-09 20:23+0000\n"
-"PO-Revision-Date: 2025-10-22 05:26+0000\n"
+"PO-Revision-Date: 2025-10-30 09:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/settings/"
 "power-extra/sv/>\n"
@@ -25,7 +25,7 @@ msgstr "Ströminställningar"
 
 #: data/power.metainfo.xml.in:11
 msgid "Configure display brightness, power buttons, and suspend behavior"
-msgstr "Ställ in skärmens ljusstyrka, strömknappar och strömsparlägen"
+msgstr "Konfigurera skärmens ljusstyrka, strömknappar och strömsparlägen"
 
 #: data/power.metainfo.xml.in:26
 msgid "elementary, Inc."
@@ -54,7 +54,7 @@ msgstr "Visa datorbatterier och batterier för anslutna enheter"
 
 #: data/power.metainfo.xml.in:49
 msgid "Fix a potential freeze when getting advanced permissions"
-msgstr "Åtgärdat en potentiell frysning när du får avancerade behörigheter"
+msgstr "Åtgärdat en potentiell frysning med avancerade behörigheter"
 
 #: data/power.metainfo.xml.in:64
 msgid "Add power profile management"
@@ -66,7 +66,7 @@ msgstr "Lägg till växling för att visa batteriprocent i panelen"
 
 #: data/power.metainfo.xml.in:81
 msgid "Fix a potential issue with resuming from sleep"
-msgstr "Åtgärdat ett potentiellt problem med återupptagning från viloläge"
+msgstr "Åtgärdat ett potentiellt problem med återhämtning från viloläge"
 
 #: data/power.metainfo.xml.in:91
 msgid "Change lid settings without restarting"
@@ -74,7 +74,7 @@ msgstr "Ändra lockets inställningar utan omstart"
 
 #: data/power.metainfo.xml.in:92
 msgid "Show in search results for \"sleep\" and \"timeout\""
-msgstr "Visas i sökresultat för \"sleep\" och \"timeout\""
+msgstr "Visa i sökresultat för \"sleep\" och \"timeout\""
 
 #: data/power.metainfo.xml.in:100
 msgid "Fix potential freeze when changing settings from multiple panes"
