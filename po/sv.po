@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maya\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-09 20:23+0000\n"
-"PO-Revision-Date: 2025-10-30 09:55+0000\n"
+"PO-Revision-Date: 2025-10-31 10:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/settings/"
 "power/sv/>\n"
@@ -30,11 +30,11 @@ msgstr "Autentisering krävs för att hantera ströminställningar"
 
 #: src/Device.vala:54
 msgid "Charging"
-msgstr "Bekräftar betalning"
+msgstr "Laddar"
 
 #: src/Device.vala:56
 msgid "Using battery power"
-msgstr "Använda batteriström"
+msgstr "Använder batteriström"
 
 #: src/Device.vala:58
 msgid "Empty"
@@ -50,11 +50,11 @@ msgstr "Väntar på att laddas"
 
 #: src/Device.vala:64
 msgid "Waiting to use battery power"
-msgstr "Väntar på att använda batterikraft"
+msgstr "Väntar på att använda batteriström"
 
 #: src/Device.vala:66
 msgid "Unknown"
-msgstr "Okänd"
+msgstr "Okänt"
 
 #. Coarse battery level can sometimes be unknown, percentage is more reliable
 #: src/Device.vala:193
@@ -80,7 +80,7 @@ msgstr "Hög"
 #: src/Device.vala:201
 msgctxt "battery-level"
 msgid "Full"
-msgstr "Full"
+msgstr "Fullt"
 
 #: src/Device.vala:205
 msgid "Unknown. Device may be locked."
@@ -88,7 +88,7 @@ msgstr "Okänd. Enheten kan vara låst."
 
 #: src/MainView.vala:49 src/Plug.vala:36
 msgid "Power"
-msgstr "Energi"
+msgstr "Ström"
 
 #: src/MainView.vala:94 src/Plug.vala:86
 msgid "Automatically Adjust Brightness"
@@ -100,11 +100,11 @@ msgstr "Skärmens ljusstyrka"
 
 #: src/MainView.vala:147
 msgid "Some changes will not take effect until you restart this computer"
-msgstr "Vissa ändringar verkställs inte förren du startar om datorn"
+msgstr "Vissa ändringar verkställs inte förrän du startar om datorn"
 
 #: src/MainView.vala:156 src/Plug.vala:92
 msgid "Lid Close Behavior"
-msgstr "Beteende vid stängning av lock"
+msgstr "Beteende vid lockstängning"
 
 #: src/MainView.vala:164 src/Plug.vala:93
 msgid "Lid Close With External Display"
@@ -125,7 +125,7 @@ msgstr "Vänteläge"
 
 #: src/MainView.vala:207
 msgid "Ask to shutdown"
-msgstr "Fråga att få stänga av"
+msgstr "Fråga om avstängning"
 
 #: src/MainView.vala:212 src/Plug.vala:94
 msgid "Power Button Behavior"
@@ -133,7 +133,7 @@ msgstr "Beteende för strömknapp"
 
 #: src/MainView.vala:226 src/MainView.vala:266 src/Plug.vala:95
 msgid "Suspend When Inactive For"
-msgstr "Vänteläge när inaktiv för"
+msgstr "Vänteläge vid inaktivitet i"
 
 #: src/MainView.vala:251
 msgid "Plugged In"
@@ -149,7 +149,7 @@ msgstr "Energisparläget används när batterinivån är låg"
 
 #: src/MainView.vala:309
 msgid "On Battery"
-msgstr "På batteri"
+msgstr "Använder batteri"
 
 #: src/Plug.vala:37
 msgid "Configure display brightness, power buttons, and suspend behavior"
@@ -161,7 +161,7 @@ msgstr "Batterinivå"
 
 #: src/Plug.vala:90
 msgid "Dim Display"
-msgstr "Dimma skärmen"
+msgstr "Dämpa skärmen"
 
 #: src/Widgets/BatteryBox.vala:22
 msgid "Battery Levels"
@@ -193,11 +193,11 @@ msgstr "(resulterar i högre energiförbrukning)"
 
 #: src/Widgets/TimeoutComboBox.vala:76
 msgid "5 min"
-msgstr "Fem minuter"
+msgstr "5 minuter"
 
 #: src/Widgets/TimeoutComboBox.vala:77
 msgid "10 min"
-msgstr "Tio minuter"
+msgstr "10 minuter"
 
 #: src/Widgets/TimeoutComboBox.vala:78
 msgid "15 min"
@@ -213,7 +213,7 @@ msgstr "45 minuter"
 
 #: src/Widgets/TimeoutComboBox.vala:81
 msgid "1 hour"
-msgstr "En timme"
+msgstr "1 timme"
 
 #: src/Widgets/TimeoutComboBox.vala:82
 msgid "2 hours"
@@ -237,7 +237,7 @@ msgstr "Stöds inte"
 
 #: src/Widgets/PowerModeButton.vala:60
 msgid "Power Mode"
-msgstr "Energiläge"
+msgstr "Strömläge"
 
 #: src/Widgets/PowerModeButton.vala:68
 msgid "Power Saver"
