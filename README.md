@@ -12,7 +12,7 @@ You'll need the following dependencies:
 * libadwaita-1-dev
 * libdbus-1-dev
 * libswitchboard-3-dev
-* libgranite-7-dev
+* libgranite-7-dev (>=7.7.0)
 * libpolkit-gobject-1-dev
 * meson
 * valac

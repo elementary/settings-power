@@ -27,12 +27,11 @@ public class Power.BatteryBox : Gtk.Grid {
             halign = END
         };
 
-        var show_percent_label = new Gtk.Label (_("Show Percentage In Panel")) {
+        var show_percent_label = new Granite.HeaderLabel (_("Show Percentage In Panel")) {
             mnemonic_widget = show_percent_switch,
-            halign = Gtk.Align.START
+            halign = Gtk.Align.START,
+            size = H4
         };
-
-        show_percent_label.add_css_class (Granite.HeaderLabel.Size.H4.to_string ());
 
         var wingpanel_power_settings = new Settings ("io.elementary.desktop.wingpanel.power");
         wingpanel_power_settings.bind ("show-percentage", show_percent_switch, "active", DEFAULT);
