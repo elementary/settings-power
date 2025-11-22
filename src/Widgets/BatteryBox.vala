@@ -8,7 +8,7 @@ public class Power.BatteryBox : Gtk.Grid {
         var battery_header = new Granite.HeaderLabel ("");
 
         var devices_box = new Gtk.Box (HORIZONTAL, 24) {
-            margin_bottom = 16
+            margin_bottom = 6
         };
 
         var batteries = PowerManager.get_default ().batteries;
@@ -31,8 +31,8 @@ public class Power.BatteryBox : Gtk.Grid {
             mnemonic_widget = show_percent_switch,
             halign = Gtk.Align.START
         };
-        
-        show_percent_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
+
+        show_percent_label.add_css_class (Granite.HeaderLabel.Size.H4.to_string ());
 
         var wingpanel_power_settings = new Settings ("io.elementary.desktop.wingpanel.power");
         wingpanel_power_settings.bind ("show-percentage", show_percent_switch, "active", DEFAULT);
