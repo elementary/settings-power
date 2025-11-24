@@ -24,11 +24,13 @@ public class Power.BatteryBox : Gtk.Grid {
         );
 
         var show_percent_switch = new Gtk.Switch () {
-            halign = END
+            halign = END,
+            valign = CENTER
         };
 
         var show_percent_label = new Granite.HeaderLabel (_("Show Percentage In Panel")) {
-            mnemonic_widget = show_percent_switch
+            mnemonic_widget = show_percent_switch,
+            size = H4
         };
 
         var wingpanel_power_settings = new Settings ("io.elementary.desktop.wingpanel.power");
