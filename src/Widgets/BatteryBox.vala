@@ -25,7 +25,7 @@ public class Power.BatteryBox : Gtk.Grid {
 
         var show_percent_switch = new Gtk.Switch () {
             halign = END,
-            valign = Gtk.Align.CENTER,
+            valign = CENTER
         };
 
         var show_percent_label = new Granite.HeaderLabel (_("Show Percentage In Panel")) {
