@@ -24,12 +24,12 @@ public class Power.BatteryBox : Gtk.Grid {
         );
 
         var show_percent_switch = new Gtk.Switch () {
-            halign = END
+            halign = END,
+            valign = Gtk.Align.CENTER,
         };
 
         var show_percent_label = new Granite.HeaderLabel (_("Show Percentage In Panel")) {
             mnemonic_widget = show_percent_switch,
-            halign = Gtk.Align.START,
             size = H4
         };
 
