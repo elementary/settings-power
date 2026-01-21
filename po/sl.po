@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: switchboard-plug-power\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-09 20:23+0000\n"
-"PO-Revision-Date: 2024-08-07 18:16+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Slovenian <https://l10n.elementary.io/projects/switchboard/"
+"PO-Revision-Date: 2026-01-22 21:55+0000\n"
+"Last-Translator: Jernej Virag <jernej@virag.si>\n"
+"Language-Team: Slovenian <https://l10n.elementaryos.org/projects/settings/"
 "power/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2016-12-11 05:17+0000\n"
 
 #: data/power.policy.in:10
@@ -31,27 +31,27 @@ msgstr "Skrbniške pravice so potrebne za spreminjanje vseh nastavitev"
 
 #: src/Device.vala:54
 msgid "Charging"
-msgstr ""
+msgstr "Polnjenje"
 
 #: src/Device.vala:56
 msgid "Using battery power"
-msgstr ""
+msgstr "Na bateriji"
 
 #: src/Device.vala:58
 msgid "Empty"
-msgstr ""
+msgstr "Prazna"
 
 #: src/Device.vala:60
 msgid "Fully charged"
-msgstr ""
+msgstr "Napolnjena"
 
 #: src/Device.vala:62
 msgid "Waiting to charge"
-msgstr ""
+msgstr "Čakanje na polnjenje"
 
 #: src/Device.vala:64
 msgid "Waiting to use battery power"
-msgstr ""
+msgstr "Čakanje na baterijsko napajanje"
 
 #: src/Device.vala:66
 msgid "Unknown"
@@ -61,17 +61,17 @@ msgstr "Neznano"
 #: src/Device.vala:193
 msgctxt "battery-level"
 msgid "Critical"
-msgstr ""
+msgstr "Kritično nizka"
 
 #: src/Device.vala:195
 msgctxt "battery-level"
 msgid "Low"
-msgstr ""
+msgstr "Nizka"
 
 #: src/Device.vala:197
 msgctxt "battery-level"
 msgid "Good"
-msgstr ""
+msgstr "Dobra"
 
 #: src/Device.vala:199
 msgctxt "battery-level"
@@ -81,25 +81,21 @@ msgstr "Visoka"
 #: src/Device.vala:201
 msgctxt "battery-level"
 msgid "Full"
-msgstr ""
+msgstr "Polna"
 
 #: src/Device.vala:205
 msgid "Unknown. Device may be locked."
-msgstr ""
+msgstr "Neznano. Naprava je morda zaklenjena."
 
 #: src/MainView.vala:49 src/Plug.vala:36
 msgid "Power"
 msgstr "Napajanje"
 
 #: src/MainView.vala:94 src/Plug.vala:86
-#, fuzzy
-#| msgid "Automatically adjust brightness:"
 msgid "Automatically Adjust Brightness"
-msgstr "Samodejno prilagajanje svetlosti:"
+msgstr "Samodejno prilagajanje svetlosti"
 
 #: src/MainView.vala:126 src/Plug.vala:91
-#, fuzzy
-#| msgid "Display brightness"
 msgid "Display Brightness"
 msgstr "Svetlost zaslona"
 
@@ -109,17 +105,15 @@ msgstr "Nekatere spremembe bodo vidne samo po ponovnem zagonu sistema"
 
 #: src/MainView.vala:156 src/Plug.vala:92
 msgid "Lid Close Behavior"
-msgstr ""
+msgstr "Ob zaprtju pokrova"
 
 #: src/MainView.vala:164 src/Plug.vala:93
 msgid "Lid Close With External Display"
-msgstr ""
+msgstr "Ob zaprtju pokrova z zunanjim zaslonom"
 
 #: src/MainView.vala:195 src/Plug.vala:88
-#, fuzzy
-#| msgid "Inactive display off"
 msgid "Automatic Display Off"
-msgstr "Izklop neaktivnega zaslona"
+msgstr "Samodejni izklop zaslona"
 
 #. FIXME: Virtual machines can only shutdown or do nothing. Tablets always suspend.
 #: src/MainView.vala:205 src/Widgets/LidCloseActionComboBox.vala:52
@@ -131,36 +125,28 @@ msgid "Suspend"
 msgstr "V pripravljenost"
 
 #: src/MainView.vala:207
-#, fuzzy
-#| msgid "Shutdown"
 msgid "Ask to shutdown"
-msgstr "Ugasni"
+msgstr "Vprašaj za izklop"
 
 #: src/MainView.vala:212 src/Plug.vala:94
-#, fuzzy
-#| msgid "Power button"
 msgid "Power Button Behavior"
-msgstr "Gumb za vklop"
+msgstr "Ob pritisku gumba za vklop"
 
 #: src/MainView.vala:226 src/MainView.vala:266 src/Plug.vala:95
-#, fuzzy
-#| msgid "Suspend when inactive for:"
 msgid "Suspend When Inactive For"
-msgstr "Ob nedejavnosti v spanje po:"
+msgstr "Ob nedejavnosti v spanje po"
 
 #: src/MainView.vala:251
 msgid "Plugged In"
 msgstr "Priključeno"
 
 #: src/MainView.vala:297 src/Plug.vala:87
-#, fuzzy
-#| msgid "Automatically adjust brightness:"
 msgid "Automatically Save Power"
-msgstr "Samodejno prilagajanje svetlosti:"
+msgstr "Samodejno varčuj z energijo"
 
 #: src/MainView.vala:300
 msgid "Power Saver mode will be used when battery is low"
-msgstr ""
+msgstr "Način za varčevanje z energijo bo vklopljen pri nizki bateriji"
 
 #: src/MainView.vala:309
 msgid "On Battery"
@@ -171,34 +157,30 @@ msgid "Configure display brightness, power buttons, and suspend behavior"
 msgstr "Nastavitve svetlosti, gumbov za napajanje in spanja"
 
 #: src/Plug.vala:89 src/Widgets/BatteryBox.vala:21
-#, fuzzy
-#| msgid "On Battery"
 msgid "Battery Level"
-msgstr "Na bateriji"
+msgstr "Nivo baterije"
 
 #: src/Plug.vala:90
-#, fuzzy
-#| msgid "Dim display"
 msgid "Dim Display"
 msgstr "Zatemni zaslon"
 
 #: src/Widgets/BatteryBox.vala:22
 msgid "Battery Levels"
-msgstr ""
+msgstr "Nivoji baterij"
 
 #: src/Widgets/BatteryBox.vala:30
 msgid "Show Percentage In Panel"
-msgstr ""
+msgstr "Prikaži odstotke v vrhnji plošči"
 
 #: src/Widgets/DevicesBox.vala:8
 msgid ""
 "Devices that report battery information when plugged in or connected "
 "wirelessly will appear here"
-msgstr ""
+msgstr "Naprave, ki javljajo nivo baterije, se bodo pojavile tu"
 
 #: src/Widgets/DevicesBox.vala:28
 msgid "Connected Devices"
-msgstr ""
+msgstr "Priklopljene naprave"
 
 #: src/Widgets/TimeoutComboBox.vala:75
 msgid "Never"
@@ -206,7 +188,7 @@ msgstr "Nikoli"
 
 #: src/Widgets/TimeoutComboBox.vala:75
 msgid "(Results in higher energy usage)"
-msgstr ""
+msgstr "(Porabi več energije)"
 
 #: src/Widgets/TimeoutComboBox.vala:76
 msgid "5 min"
@@ -253,24 +235,20 @@ msgid "Not supported"
 msgstr "Ni podprto"
 
 #: src/Widgets/PowerModeButton.vala:60
-#, fuzzy
-#| msgid "Power"
 msgid "Power Mode"
-msgstr "Napajanje"
+msgstr "Način napajanja"
 
 #: src/Widgets/PowerModeButton.vala:68
-#, fuzzy
-#| msgid "Power"
 msgid "Power Saver"
-msgstr "Napajanje"
+msgstr "Varčevanje z energijo"
 
 #: src/Widgets/PowerModeButton.vala:82
 msgid "Balanced"
-msgstr ""
+msgstr "Uravnoteženo"
 
 #: src/Widgets/PowerModeButton.vala:98
 msgid "Performance"
-msgstr ""
+msgstr "Najboljša učinkovitost delovanja"
 
 #~ msgid "Display brightness:"
 #~ msgstr "Svetlost zaslona:"
