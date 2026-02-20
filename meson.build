@@ -1,7 +1,7 @@
 project(
     'power',
     'vala', 'c',
-    version: '2.7.0'
+    version: '8.1.0'
 )
 
 gettext_name = 'io.elementary.settings.' + meson.project_name()
@@ -15,6 +15,7 @@ libexecdir = join_paths(prefix, get_option('libexecdir'))
 
 add_project_arguments(
     '-DGETTEXT_PACKAGE="@0@"'.format(gettext_name),
+    '-DG_LOG_DOMAIN="@0@"'.format(gettext_name),
     language:'c'
 )
 

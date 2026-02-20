@@ -1,6 +1,5 @@
 # Power Settings
-[![Packaging status](https://repology.org/badge/tiny-repos/switchboard-plug-power.svg)](https://repology.org/metapackage/switchboard-plug-power)
-[![Translation status](https://l10n.elementary.io/widgets/switchboard/-/power/svg-badge.svg)](https://l10n.elementary.io/engage/switchboard/?utm_source=widget)
+[![Translation status](https://l10n.elementaryos.org/widget/settings/power/svg-badge.svg)](https://l10n.elementaryos.org/engage/settings/)
 
 ![screenshot](data/screenshot.png?raw=true)
 
@@ -12,7 +11,7 @@ You'll need the following dependencies:
 * libadwaita-1-dev
 * libdbus-1-dev
 * libswitchboard-3-dev
-* libgranite-7-dev
+* libgranite-7-dev (>=7.7.0)
 * libpolkit-gobject-1-dev
 * meson
 * valac

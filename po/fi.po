@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maya\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-20 18:42+0000\n"
-"PO-Revision-Date: 2022-06-02 22:01+0000\n"
+"POT-Creation-Date: 2025-10-09 20:23+0000\n"
+"PO-Revision-Date: 2024-12-02 14:16+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/switchboard/"
-"switchboard-plug-power/fi/>\n"
+"power/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2016-11-22 06:03+0000\n"
 
 #: data/power.policy.in:10
@@ -34,66 +34,67 @@ msgstr ""
 
 #: src/Device.vala:56
 msgid "Using battery power"
-msgstr ""
+msgstr "Käytetään akkua"
 
 #: src/Device.vala:58
 msgid "Empty"
-msgstr ""
+msgstr "Tyhjä"
 
 #: src/Device.vala:60
 msgid "Fully charged"
-msgstr ""
+msgstr "Ladattu täyteen"
 
 #: src/Device.vala:62
 msgid "Waiting to charge"
-msgstr ""
+msgstr "Odottaa latausta"
 
 #: src/Device.vala:64
 msgid "Waiting to use battery power"
-msgstr ""
+msgstr "Odottaa akun käyttöä"
 
 #: src/Device.vala:66
 msgid "Unknown"
-msgstr ""
+msgstr "Tuntematon"
 
 #. Coarse battery level can sometimes be unknown, percentage is more reliable
 #: src/Device.vala:193
+msgctxt "battery-level"
 msgid "Critical"
-msgstr ""
+msgstr "Kriittinen"
 
 #: src/Device.vala:195
+msgctxt "battery-level"
 msgid "Low"
-msgstr ""
+msgstr "Matala"
 
 #: src/Device.vala:197
+msgctxt "battery-level"
 msgid "Good"
-msgstr ""
+msgstr "Hyvä"
 
 #: src/Device.vala:199
+msgctxt "battery-level"
 msgid "High"
-msgstr ""
+msgstr "Korkea"
 
 #: src/Device.vala:201
+msgctxt "battery-level"
 msgid "Full"
-msgstr ""
+msgstr "Täysi"
 
 #: src/Device.vala:205
 msgid "Unknown. Device may be locked."
-msgstr ""
+msgstr "Tuntematon. Laite saattaa olla lukittu."
 
 #: src/MainView.vala:49 src/Plug.vala:36
 msgid "Power"
 msgstr "Virranhallinta"
 
 #: src/MainView.vala:94 src/Plug.vala:86
-#, fuzzy
-#| msgid "Automatically adjust brightness:"
 msgid "Automatically Adjust Brightness"
-msgstr "Säädä kirkkautta automaattisesti:"
+msgstr "Säädä kirkkautta automaattisesti"
 
 #: src/MainView.vala:126 src/Plug.vala:91
-#, fuzzy
-#| msgid "Display brightness"
 msgid "Display Brightness"
 msgstr "Näytön kirkkaus"
 
@@ -105,17 +106,15 @@ msgstr ""
 
 #: src/MainView.vala:156 src/Plug.vala:92
 msgid "Lid Close Behavior"
-msgstr ""
+msgstr "Kannen sulkemisen toiminto"
 
 #: src/MainView.vala:164 src/Plug.vala:93
 msgid "Lid Close With External Display"
-msgstr ""
+msgstr "Kannen sulkeminen ulkoisella näytöllä"
 
 #: src/MainView.vala:195 src/Plug.vala:88
-#, fuzzy
-#| msgid "Inactive display off"
 msgid "Automatic Display Off"
-msgstr "Käyttämätön näyttö pois"
+msgstr "Automaattisesti näyttö pois"
 
 #. FIXME: Virtual machines can only shutdown or do nothing. Tablets always suspend.
 #: src/MainView.vala:205 src/Widgets/LidCloseActionComboBox.vala:52
@@ -127,16 +126,12 @@ msgid "Suspend"
 msgstr "Valmiustila"
 
 #: src/MainView.vala:207
-#, fuzzy
-#| msgid "Prompt to shutdown"
 msgid "Ask to shutdown"
-msgstr "Vahvistus sammutukselle"
+msgstr "Kysy vahvistusta sammuttamiseen"
 
 #: src/MainView.vala:212 src/Plug.vala:94
-#, fuzzy
-#| msgid "Power button"
 msgid "Power Button Behavior"
-msgstr "Virtapainike"
+msgstr "Virtapainikkeen toiminta"
 
 #: src/MainView.vala:226 src/MainView.vala:266 src/Plug.vala:95
 #, fuzzy
@@ -149,14 +144,12 @@ msgid "Plugged In"
 msgstr "Verkkovirralla"
 
 #: src/MainView.vala:297 src/Plug.vala:87
-#, fuzzy
-#| msgid "Automatically adjust brightness:"
 msgid "Automatically Save Power"
-msgstr "Säädä kirkkautta automaattisesti:"
+msgstr "Säästä energiaa automaattisesti"
 
 #: src/MainView.vala:300
 msgid "Power Saver mode will be used when battery is low"
-msgstr ""
+msgstr "Virransäästötilaa käytetään kun akku on vähissä"
 
 #: src/MainView.vala:309
 msgid "On Battery"
@@ -167,66 +160,66 @@ msgid "Configure display brightness, power buttons, and suspend behavior"
 msgstr "Määritä näytön kirkkaus sekä virtapainikkeiden ja lepotilan toiminta"
 
 #: src/Plug.vala:89 src/Widgets/BatteryBox.vala:21
-#, fuzzy
-#| msgid "On Battery"
 msgid "Battery Level"
-msgstr "Akkuvirralla"
+msgstr "Akun taso"
 
 #: src/Plug.vala:90
-#, fuzzy
-#| msgid "Dim display"
 msgid "Dim Display"
 msgstr "Himmennä näyttö"
 
 #: src/Widgets/BatteryBox.vala:22
 msgid "Battery Levels"
-msgstr ""
+msgstr "Akkutasot"
 
 #: src/Widgets/BatteryBox.vala:30
-#, fuzzy
-#| msgid "Show battery percentage in Panel:"
 msgid "Show Percentage In Panel"
-msgstr "Näytä akun varauksen prosentti paneelissa:"
+msgstr "Näytä akun varauksen prosentti paneelissa"
 
 #: src/Widgets/DevicesBox.vala:8
 msgid ""
 "Devices that report battery information when plugged in or connected "
 "wirelessly will appear here"
 msgstr ""
+"Laitteet, jotka ilmoittavat akun tiedot liitettynä tai langattomasti "
+"yhdistettynä, näkyvät täällä"
 
 #: src/Widgets/DevicesBox.vala:28
 msgid "Connected Devices"
-msgstr ""
+msgstr "Yhdistetyt laitteet"
 
-#: src/Widgets/TimeoutComboBox.vala:97
+#: src/Widgets/TimeoutComboBox.vala:75
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: src/Widgets/TimeoutComboBox.vala:98
+#: src/Widgets/TimeoutComboBox.vala:75
+msgid "(Results in higher energy usage)"
+msgstr ""
+
+#: src/Widgets/TimeoutComboBox.vala:76
 msgid "5 min"
 msgstr "5 min"
 
-#: src/Widgets/TimeoutComboBox.vala:99
+#: src/Widgets/TimeoutComboBox.vala:77
 msgid "10 min"
 msgstr "10 min"
 
-#: src/Widgets/TimeoutComboBox.vala:100
+#: src/Widgets/TimeoutComboBox.vala:78
 msgid "15 min"
 msgstr "15 min"
 
-#: src/Widgets/TimeoutComboBox.vala:101
+#: src/Widgets/TimeoutComboBox.vala:79
 msgid "30 min"
 msgstr "30 min"
 
-#: src/Widgets/TimeoutComboBox.vala:102
+#: src/Widgets/TimeoutComboBox.vala:80
 msgid "45 min"
 msgstr "45 min"
 
-#: src/Widgets/TimeoutComboBox.vala:103
+#: src/Widgets/TimeoutComboBox.vala:81
 msgid "1 hour"
 msgstr "1 tunti"
 
-#: src/Widgets/TimeoutComboBox.vala:104
+#: src/Widgets/TimeoutComboBox.vala:82
 msgid "2 hours"
 msgstr "2 tuntia"
 
@@ -247,10 +240,8 @@ msgid "Not supported"
 msgstr "Ei tuettu"
 
 #: src/Widgets/PowerModeButton.vala:60
-#, fuzzy
-#| msgid "Power Saver"
 msgid "Power Mode"
-msgstr "Virransäästö"
+msgstr "Tehotila"
 
 #: src/Widgets/PowerModeButton.vala:68
 msgid "Power Saver"

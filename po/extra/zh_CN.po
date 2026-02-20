@@ -7,72 +7,86 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-20 18:42+0000\n"
-"PO-Revision-Date: 2021-11-02 05:56+0000\n"
-"Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
+"POT-Creation-Date: 2025-10-09 20:23+0000\n"
+"PO-Revision-Date: 2024-08-07 18:16+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
-"switchboard/power-plug-extra/zh_Hans/>\n"
+"switchboard/power-extra/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
-#: data/power.appdata.xml.in:5
+#: data/power.metainfo.xml.in:10
 msgid "Power Settings"
 msgstr "电源设置"
 
-#: data/power.appdata.xml.in:6
+#: data/power.metainfo.xml.in:11
 msgid "Configure display brightness, power buttons, and suspend behavior"
 msgstr "配置显示器亮度、电源按键和睡眠方式"
 
-#: data/power.appdata.xml.in:11 data/power.appdata.xml.in:23
-msgid "New features:"
-msgstr "新特性："
+#: data/power.metainfo.xml.in:26
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
-#: data/power.appdata.xml.in:13
-msgid "Add power profile management"
-msgstr ""
-
-#: data/power.appdata.xml.in:15 data/power.appdata.xml.in:27
-#: data/power.appdata.xml.in:36
+#: data/power.metainfo.xml.in:34 data/power.metainfo.xml.in:47
+#: data/power.metainfo.xml.in:66 data/power.metainfo.xml.in:79
+#: data/power.metainfo.xml.in:89
 msgid "Minor updates:"
 msgstr "次要更新："
 
-#: data/power.appdata.xml.in:17 data/power.appdata.xml.in:30
-#: data/power.appdata.xml.in:40 data/power.appdata.xml.in:47
-#: data/power.appdata.xml.in:52 data/power.appdata.xml.in:59
+#: data/power.metainfo.xml.in:36 data/power.metainfo.xml.in:50
+#: data/power.metainfo.xml.in:68 data/power.metainfo.xml.in:82
+#: data/power.metainfo.xml.in:93 data/power.metainfo.xml.in:101
 msgid "Updated translations"
 msgstr "翻译更新"
 
-#: data/power.appdata.xml.in:25
+#: data/power.metainfo.xml.in:43 data/power.metainfo.xml.in:62
+#: data/power.metainfo.xml.in:75
+msgid "New features:"
+msgstr "新特性："
+
+#: data/power.metainfo.xml.in:45
+msgid "Show computer batteries and batteries for connected devices"
+msgstr ""
+
+#: data/power.metainfo.xml.in:49
+#, fuzzy
+#| msgid "Fix potential freeze when changing settings from multiple panes"
+msgid "Fix a potential freeze when getting advanced permissions"
+msgstr "修复从多个窗格更改设置时潜在的冻结"
+
+#: data/power.metainfo.xml.in:64
+msgid "Add power profile management"
+msgstr ""
+
+#: data/power.metainfo.xml.in:77
 msgid "Add toggle for showing battery percentage in Panel"
 msgstr "可以在面板中切换显示电池百分比"
 
-#: data/power.appdata.xml.in:29
+#: data/power.metainfo.xml.in:81
 msgid "Fix a potential issue with resuming from sleep"
 msgstr "修复从睡眠中恢复的潜在问题"
 
-#: data/power.appdata.xml.in:38
+#: data/power.metainfo.xml.in:91
 msgid "Change lid settings without restarting"
 msgstr "无需重新启动即可修改合上笔记本的设置"
 
-#: data/power.appdata.xml.in:39
+#: data/power.metainfo.xml.in:92
 msgid "Show in search results for \"sleep\" and \"timeout\""
 msgstr "在搜索结果中显示“sleep”和“timeout”"
 
-#: data/power.appdata.xml.in:46
+#: data/power.metainfo.xml.in:100
 msgid "Fix potential freeze when changing settings from multiple panes"
 msgstr "修复从多个窗格更改设置时潜在的冻结"
 
-#: data/power.appdata.xml.in:57
-msgid "Remove broken hibernate option"
-msgstr "删除损坏的休眠选项"
+#~ msgid "Remove broken hibernate option"
+#~ msgstr "删除损坏的休眠选项"
 
-#: data/power.appdata.xml.in:58
-msgid "Add prompt to shutdown to power button actions"
-msgstr "将关机提示添加到电源按钮操作"
+#~ msgid "Add prompt to shutdown to power button actions"
+#~ msgstr "将关机提示添加到电源按钮操作"
 
 #~ msgid "Power"
 #~ msgstr "电源"
