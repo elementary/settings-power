@@ -201,7 +201,7 @@ public class Power.MainView : Switchboard.SettingsPage {
         };
 
         // FIXME: Virtual machines can only shutdown or do nothing. Tablets always suspend.
-        string[] strings =  {_("_Do nothing"), _("_Suspend"), _("_Ask to shutdown")};
+        string[] strings = {_("_Do nothing"), _("_Suspend"), _("_Ask to shutdown")};
         powerbutton_dropdown = new AccessibleDropDown (strings, true) {
             hexpand = true,
         };

@@ -36,7 +36,6 @@ public class Power.AccessibleDropDown : Gtk.Box {
         }
 
         var f = new Gtk.SignalListItemFactory ();
-
         f.setup.connect ((obj) => {
             var li = (Gtk.ListItem)obj;
             var widget = new ItemWidget ("", this);
