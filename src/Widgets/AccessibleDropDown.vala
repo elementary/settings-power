@@ -17,6 +17,12 @@ public class Power.AccessibleDropDown : Gtk.Box {
         }
     }
 
+    public Object? selected_item {
+        get {
+            return dropdown.selected_item;
+        }
+    }
+
     public Gtk.DropDown dropdown { get; private set; }
     public bool show_selected_icon { get; construct; }
     private ListStore model;

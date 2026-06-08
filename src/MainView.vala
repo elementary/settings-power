@@ -231,6 +231,10 @@ public class Power.MainView : Switchboard.SettingsPage {
             hexpand = true
         };
 
+        sleep_timeout.notify["selected-seconds"].connect (() => {
+            //TODO show warning somehow
+        });
+
         var ac_grid = new Gtk.Grid () {
             column_spacing = 12,
             row_spacing = 12
