@@ -72,7 +72,7 @@ class Power.TimeoutComboBox : Granite.Bin {
         key_type = schema.get_value (key).get_type ();
 
         string[] strings = {
-            _("Never"),
+            _("Never (uses more energy)"),
             _("5 min"),
             _("10 min"),
             _("30 min"),
