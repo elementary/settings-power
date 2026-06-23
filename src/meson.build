@@ -12,6 +12,7 @@ plug_files = files(
     'Widgets/TimeoutComboBox.vala',
     'Widgets/LidCloseActionComboBox.vala',
     'Widgets/PowerModeButton.vala',
+    'Widgets/AccessibleDropDown.vala'
 )
 
 switchboard_dep = dependency('switchboard-3')
