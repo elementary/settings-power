@@ -33,7 +33,14 @@ public class Power.BatteryBox : Gtk.Grid {
             size = H4
         };
 
-        var wingpanel_power_settings = new Settings ("io.elementary.desktop.wingpanel.power");
+        Settings wingpanel_power_settings;
+        var wingpanel_power_schema = SettingsSchemaSource.get_default ().lookup ("io.elementary.panel.power", true);
+        if (wingpanel_power_schema != null) {
+            wingpanel_power_settings = new Settings ("io.elementary.panel.power");
+        } else {
+            wingpanel_power_settings = new Settings ("io.elementary.desktop.wingpanel.power");
+        }
+
         wingpanel_power_settings.bind ("show-percentage", show_percent_switch, "active", DEFAULT);
 
         column_spacing = 12;
