@@ -30,7 +30,7 @@ public class Power.MainView : Switchboard.SettingsPage {
     private const string SETTINGS_DAEMON_NAME = "org.gnome.SettingsDaemon.Power";
     private const string SETTINGS_DAEMON_PATH = "/org/gnome/SettingsDaemon/Power";
 
-    private Gtk.DropDown powerbutton_dropdown;
+    private AccessibleDropDown powerbutton_dropdown;
     private Gtk.Scale scale;
     private PowerSettings screen;
 
@@ -201,12 +201,9 @@ public class Power.MainView : Switchboard.SettingsPage {
         };
 
         // FIXME: Virtual machines can only shutdown or do nothing. Tablets always suspend.
-        powerbutton_dropdown = new Gtk.DropDown.from_strings ({
-            _("Do nothing"),
-            _("Suspend"),
-            _("Ask to shutdown")
-        }) {
-            hexpand = true
+        string[] strings = {_("_Do nothing"), _("_Suspend"), _("_Ask to shutdown")};
+        powerbutton_dropdown = new AccessibleDropDown (strings, true) {
+            hexpand = true,
         };
 
         var powerbutton_label = new Gtk.Label (_("Power Button Behavior")) {
@@ -345,7 +342,7 @@ public class Power.MainView : Switchboard.SettingsPage {
         update_powerbutton_dropdown ();
         settings.changed["power-button-action"].connect (update_powerbutton_dropdown);
 
-        powerbutton_dropdown.notify["selected"].connect (() => {
+        powerbutton_dropdown.selection_changed.connect (() => {
             int[] map = {0, 1, 3};
             settings.set_enum (
                 "power-button-action",
