@@ -1,6 +1,7 @@
 interfaces_file = files('Interfaces.vala')
 
 plug_files = files(
+    'BrightnessManager.vala',
     'Device.vala',
     'GreeterAccountsServicePlugin.vala',
     'LogindHelper.vala',
@@ -10,6 +11,8 @@ plug_files = files(
     'Widgets/BatteryBox.vala',
     'Widgets/DevicesBox.vala',
     'Widgets/TimeoutComboBox.vala',
+    'Widgets/ScreenBrightnessList.vala',
+    'Widgets/ScreenBrightnessRow.vala',
     'Widgets/LidCloseActionComboBox.vala',
     'Widgets/PowerModeButton.vala',
 )
