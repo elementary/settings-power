@@ -20,19 +20,7 @@
 public class Power.MainView : Switchboard.SettingsPage {
     public Gtk.Stack stack { get; private set; }
 
-    /* Smooth scrolling support */
-    public bool natural_scroll_touchpad { get; set; }
-    public bool natural_scroll_mouse { get; set; }
-    private double total_x_delta = 0;
-    private double total_y_delta= 0;
-    private const double BRIGHTNESS_STEP = 4.0;
-
-    private const string SETTINGS_DAEMON_NAME = "org.gnome.SettingsDaemon.Power";
-    private const string SETTINGS_DAEMON_PATH = "/org/gnome/SettingsDaemon/Power";
-
     private Gtk.DropDown powerbutton_dropdown;
-    private Gtk.Scale scale;
-    private PowerSettings screen;
 
     private enum PowerActionType {
         BLANK,
@@ -52,23 +40,11 @@ public class Power.MainView : Switchboard.SettingsPage {
     }
 
     construct {
-        var touchpad_settings = new GLib.Settings ("org.gnome.desktop.peripherals.touchpad");
-        touchpad_settings.bind ("natural-scroll", this, "natural-scroll-touchpad", SettingsBindFlags.GET);
-        var mouse_settings = new GLib.Settings ("org.gnome.desktop.peripherals.mouse");
-        mouse_settings.bind ("natural-scroll", this, "natural-scroll-mouse", SettingsBindFlags.GET);
-
         var label_size = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
 
         settings = new GLib.Settings ("org.gnome.settings-daemon.plugins.power");
 
         var power_manager = PowerManager.get_default ();
-
-        try {
-            screen = Bus.get_proxy_sync (BusType.SESSION, SETTINGS_DAEMON_NAME,
-                SETTINGS_DAEMON_PATH, DBusProxyFlags.GET_INVALIDATED_PROPERTIES);
-        } catch (IOError e) {
-            warning ("Failed to get settings daemon for brightness setting");
-        }
 
         var box = new Gtk.Box (VERTICAL, 24);
 
@@ -86,7 +62,8 @@ public class Power.MainView : Switchboard.SettingsPage {
 
         box.append (devices_box);
 
-        if (screen.brightness != -1) {
+        var brightness_manager = BrightnessManager.get_default ();
+        if (brightness_manager.present) {
             var als_switch = new Gtk.Switch () {
                 halign = END
             };
@@ -98,48 +75,31 @@ public class Power.MainView : Switchboard.SettingsPage {
 
             settings.bind ("ambient-enabled", als_switch, "active", SettingsBindFlags.DEFAULT);
 
-            var scale_scroll_controller = new Gtk.EventControllerLegacy ();
-
-            scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0, 100, 10) {
+            var screen_brightness_list = new ScreenBrightnessList () {
                 hexpand = true
-            };
-            scale.add_controller (scale_scroll_controller);
-
-            scale_scroll_controller.event.connect ((e) => {
-                if (e.get_event_type () == Gdk.EventType.SCROLL) {
-                    double dir = 0.0;
-                    if (handle_scroll_event ((Gdk.ScrollEvent) e, out dir)) {
-                        scale.set_value (scale.get_value () + Math.round (dir * BRIGHTNESS_STEP));
-                    }
-
-                    return Gdk.EVENT_STOP;
-                }
-
-                return Gdk.EVENT_PROPAGATE;
-            });
-
-            scale.set_value (screen.brightness);
-
-            scale.value_changed.connect (on_scale_value_changed);
-            ((DBusProxy)screen).g_properties_changed.connect (on_screen_properties_changed);
-
-            var brightness_label = new Gtk.Label (_("Display Brightness")) {
-                mnemonic_widget = scale,
-                xalign = 0
             };
 
             var brightness_grid = new Gtk.Grid () {
                 column_spacing = 12,
                 row_spacing = 12
             };
-            brightness_grid.attach (brightness_label, 0, 0);
-            brightness_grid.attach (scale, 1, 0);
+            brightness_grid.attach (screen_brightness_list, 0, 0, 2, 1);
             brightness_grid.attach (als_label, 0, 1);
             brightness_grid.attach (als_switch, 1, 1);
 
-            box.append (brightness_grid);
+            var brightness_revealer = new Gtk.Revealer () {
+                child = brightness_grid,
+                reveal_child = brightness_manager.has_monitors
+            };
+            brightness_manager.bind_property (
+                "has-monitors",
+                brightness_revealer,
+                "reveal-child",
+                GLib.BindingFlags.DEFAULT
+            );
+            box.append (brightness_revealer);
 
-            label_size.add_widget (brightness_label);
+            label_size.add_widget (screen_brightness_list);
             label_size.add_widget (als_label);
         }
 
@@ -352,91 +312,6 @@ public class Power.MainView : Switchboard.SettingsPage {
                 map[powerbutton_dropdown.selected]
             );
         });
-    }
-
-    private void on_scale_value_changed () {
-        var val = (int) scale.get_value ();
-        ((DBusProxy)screen).g_properties_changed.disconnect (on_screen_properties_changed);
-        screen.brightness = val;
-        ((DBusProxy)screen).g_properties_changed.connect (on_screen_properties_changed);
-    }
-
-    private void on_screen_properties_changed (Variant changed_properties, string[] invalidated_properties) {
-        var changed_brightness = changed_properties.lookup_value ("Brightness", new VariantType ("i"));
-        if (changed_brightness != null) {
-            var val = screen.brightness;
-            scale.value_changed.disconnect (on_scale_value_changed);
-            scale.set_value (val);
-            scale.value_changed.connect (on_scale_value_changed);
-        }
-    }
-
-    /* Handles both SMOOTH and non-SMOOTH events.
-     * In order to deliver smooth brightness changes it:
-     * * accumulates very small changes until they become significant.
-     * * ignores rapid changes in direction.
-     * * responds to both horizontal and vertical scrolling.
-     * In the case of diagonal scrolling, it ignores the event unless movement in one direction
-     * is more than twice the movement in the other direction.
-     */
-     private bool handle_scroll_event (Gdk.ScrollEvent e, out double dir) {
-        dir = 0.0;
-        bool natural_scroll;
-        var event_source = e.get_device ().get_source ();
-
-        // If scroll is smooth it's probably a touchpad
-        if (event_source == Gdk.InputSource.TOUCHPAD || e.get_direction () == Gdk.ScrollDirection.SMOOTH) {
-            natural_scroll = natural_scroll_touchpad;
-        } else if (event_source == Gdk.InputSource.MOUSE) {
-            natural_scroll = natural_scroll_mouse;
-        } else {
-            natural_scroll = false;
-        }
-
-        switch (e.get_direction ()) {
-            case Gdk.ScrollDirection.SMOOTH:
-                double dx, dy;
-                e.get_deltas (out dx, out dy);
-
-                var abs_x = double.max (dx.abs (), 0.0001);
-                var abs_y = double.max (dy.abs (), 0.0001);
-
-                if (abs_y / abs_x > 2.0) {
-                    total_y_delta += dy;
-                } else if (abs_x / abs_y > 2.0) {
-                    total_x_delta += dx;
-                }
-
-                break;
-            case Gdk.ScrollDirection.UP:
-                total_y_delta = -1.0;
-                break;
-            case Gdk.ScrollDirection.DOWN:
-                total_y_delta = 1.0;
-                break;
-            case Gdk.ScrollDirection.LEFT:
-                total_x_delta = -1.0;
-                break;
-            case Gdk.ScrollDirection.RIGHT:
-                total_x_delta = 1.0;
-                break;
-            default:
-                break;
-        }
-
-        if (total_y_delta.abs () * BRIGHTNESS_STEP > 1.0) {
-            dir = natural_scroll ? total_y_delta : -total_y_delta;
-        } else if (total_x_delta.abs () * BRIGHTNESS_STEP > 1.0) {
-            dir = natural_scroll ? -total_x_delta : total_x_delta;
-        }
-
-        if (dir.abs () > 0.0) {
-            total_y_delta = 0.0;
-            total_x_delta = 0.0;
-            return true;
-        }
-
-        return false;
     }
 
     private void update_powerbutton_dropdown () {
