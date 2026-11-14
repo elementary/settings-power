@@ -25,7 +25,7 @@ class Power.LidCloseActionComboBox : Gtk.Widget {
 
     private static Polkit.Permission? permission = null;
 
-    private Gtk.DropDown dropdown;
+    private AccessibleDropDown dropdown;
     private uint previous_active;
 
     public LidCloseActionComboBox (bool dock) {
@@ -37,28 +37,31 @@ class Power.LidCloseActionComboBox : Gtk.Widget {
     }
 
     construct {
-        dropdown = new Gtk.DropDown (null, null) {
-            hexpand = true
-        };
-        dropdown.set_parent (this);
-
         var helper = LogindHelper.get_logind_helper ();
-        if (helper != null && helper.present) {
-            dropdown.model = new Gtk.StringList ({
-                _("Suspend"),
-                _("Shutdown"),
-                _("Lock"),
-                _("Halt"),
-                _("Do nothing")
-            });
+        var helper_present = helper != null && helper.present;
+        string[] strings;
+        if (helper_present) {
+            strings = {
+                _("_Suspend"),
+                _("Sh_utdown"),
+                _("_Lock"),
+                _("_Halt"),
+                _("_Do nothing")
+            };
         } else {
-            dropdown.model = new Gtk.StringList ({_("Not supported")});
-            dropdown.sensitive = false;
+            strings = {_("Not supported")};
         }
+
+        dropdown = new AccessibleDropDown (strings, true) {
+            hexpand = true,
+            sensitive = helper_present
+        };
+
+        dropdown.set_parent (this);
 
         update_current_action ();
         previous_active = dropdown.selected;
-        dropdown.notify["selected"].connect (on_changed);
+        dropdown.selection_changed.connect (on_changed);
     }
 
     // Returns true on success

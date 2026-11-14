@@ -4,7 +4,9 @@
  */
 
 class Power.TimeoutComboBox : Granite.Bin {
-    private Greeter.AccountsService? greeter_act = null;
+    public GLib.Settings schema { get; construct; }
+    public string key { get; construct; }
+    public int selected_seconds { get; set; }
 
     private string? _enum_property = null;
     public string? enum_property {
@@ -45,11 +47,9 @@ class Power.TimeoutComboBox : Granite.Bin {
         }
     }
 
-    public GLib.Settings schema { get; construct; }
-    public string key { get; construct; }
+    private Greeter.AccountsService? greeter_act = null;
     private VariantType key_type;
-    private Gtk.DropDown dropdown;
-
+    private AccessibleDropDown dropdown;
     private const int SECS_IN_MINUTE = 60;
     private const int[] TIMEOUT = {
         0,
@@ -71,28 +71,25 @@ class Power.TimeoutComboBox : Granite.Bin {
     construct {
         key_type = schema.get_value (key).get_type ();
 
-        var liststore = new GLib.ListStore (typeof (Timeout));
-        liststore.append (new Timeout (_("Never"), 0, _("(Results in higher energy usage)")));
-        liststore.append (new Timeout (_("5 min"), 5 * SECS_IN_MINUTE));
-        liststore.append (new Timeout (_("10 min"), 10 * SECS_IN_MINUTE));
-        liststore.append (new Timeout (_("15 min"), 15 * SECS_IN_MINUTE));
-        liststore.append (new Timeout (_("30 min"), 30 * SECS_IN_MINUTE));
-        liststore.append (new Timeout (_("45 min"), 45 * SECS_IN_MINUTE));
-        liststore.append (new Timeout (_("1 hour"), 60 * SECS_IN_MINUTE));
-        liststore.append (new Timeout (_("2 hours"), 120 * SECS_IN_MINUTE));
+        string[] strings = {
+            _("Never (uses more energy)"),
+            _("5 min"),
+            _("10 min"),
+            _("30 min"),
+            _("45 min"),
+            _("1 hour"),
+            _("2 hours")
+        };
 
-        var factory = new Gtk.SignalListItemFactory ();
-        factory.bind.connect (bind_factory);
-
-        dropdown = new Gtk.DropDown (liststore, null) {
-            factory = factory
+        dropdown = new AccessibleDropDown (strings, true) {
+            hexpand = true
         };
 
         child = dropdown;
 
         setup_accountsservice.begin ();
 
-        dropdown.notify["selected"].connect (update_settings);
+        dropdown.selection_changed.connect (update_settings);
         schema.changed[key].connect (update_combo);
     }
 
@@ -123,10 +120,13 @@ class Power.TimeoutComboBox : Granite.Bin {
 
         schema.changed[key].disconnect (update_combo);
 
+        int[] map = {0, 5, 10, 15, 30, 45, 60, 120};
+        selected_seconds = map[dropdown.selected] * SECS_IN_MINUTE;
+
         if (key_type.equal (VariantType.UINT32)) {
-            schema.set_uint (key, (uint) ((Timeout) dropdown.selected_item).seconds);
+            schema.set_uint (key, (uint) selected_seconds);
         } else if (key_type.equal (VariantType.INT32)) {
-            schema.set_int (key, ((Timeout) dropdown.selected_item).seconds);
+            schema.set_int (key, selected_seconds);
         } else {
             critical ("Unsupported key type in schema");
         }
@@ -135,10 +135,10 @@ class Power.TimeoutComboBox : Granite.Bin {
 
         if (greeter_act != null) {
             if (key == "sleep-inactive-ac-timeout") {
-                greeter_act.sleep_inactive_ac_timeout = ((Timeout) dropdown.selected_item).seconds;
+                greeter_act.sleep_inactive_ac_timeout = selected_seconds;
                 greeter_act.sleep_inactive_ac_type = schema.get_enum (enum_property);
             } else if (key == "sleep-inactive-battery-timeout") {
-                greeter_act.sleep_inactive_battery_timeout = ((Timeout) dropdown.selected_item).seconds;
+                greeter_act.sleep_inactive_battery_timeout = selected_seconds;
                 greeter_act.sleep_inactive_battery_type = schema.get_enum (enum_property);
             }
         }
@@ -181,49 +181,5 @@ class Power.TimeoutComboBox : Granite.Bin {
         dropdown.notify["selected"].disconnect (update_settings);
         dropdown.selected = find_closest (val);
         dropdown.notify["selected"].connect (update_settings);
-    }
-
-    private void bind_factory (Object object) {
-        var list_item = (Gtk.ListItem) object;
-        var timeout = (Timeout) list_item.item;
-        list_item.child = timeout.get_widget ();
-    }
-
-    private class Timeout : Object {
-        public string label { get; construct; }
-        public string description { get; construct; }
-        public int seconds { get; construct; }
-
-        public Timeout (string label, int seconds, string description = "") {
-            Object (
-                label: label,
-                seconds: seconds,
-                description: description
-            );
-        }
-
-        public Gtk.Widget get_widget () {
-            var title = new Gtk.Label (label) {
-                valign = BASELINE,
-                xalign = 0
-            };
-
-            var box = new Granite.Box (HORIZONTAL, HALF);
-            box.append (title);
-
-            if (description != "") {
-                var description = new Gtk.Label (description) {
-                    valign = BASELINE,
-                    xalign = 0,
-                    wrap = true
-                };
-                description.add_css_class (Granite.CssClass.SMALL);
-                description.add_css_class (Granite.CssClass.WARNING);
-
-                box.append (description);
-            }
-
-            return box;
-        }
     }
 }
